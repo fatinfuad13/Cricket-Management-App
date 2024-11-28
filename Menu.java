@@ -75,7 +75,7 @@ public class Menu {
             break;
 
             case 6:
-            return;
+            break;
 
             default:
             System.out.println("Invalid Option");
@@ -92,7 +92,7 @@ public class Menu {
         SearchClub search = new SearchClub();
         
         int choice = -1;
-        while(choice != 6)
+        while(choice != 5)
         {
            System.out.println( "Club Searching Options:\n(1) Player(s) with the maximum salary of a club\n(2) Player(s) with the maximum age of a club\n(3) Player(s) with the maximum height of a club\n(4) Total yearly salary of a club\n(5) Back to Main Menu");
            choice = scanner.nextInt();
@@ -115,7 +115,7 @@ public class Menu {
             break;
 
             case 5:
-            return;
+            break;
 
             default:
             System.out.println("Invalid option");
