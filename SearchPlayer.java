@@ -6,69 +6,59 @@ public class SearchPlayer {
 
     ArrayList<Player> players =  new ArrayList<>(PlayerList.getPlayers());; // receive the playerList 
     Scanner scanner = new Scanner(System.in);
+    
 
-    public void byName() // searches for a player by name
+    public ArrayList<Player> byName() // searches for a player by name
     {
-      
+      ArrayList<Player> searched = new ArrayList<>(); 
       System.out.println("Enter name of the player:");
       String name = scanner.nextLine();
       name = name.toLowerCase();
 
-      boolean found = false;
+      //boolean found = false;
       for(int i=0;i<players.size();i++)
       {
         
         String s = players.get(i).getName().toLowerCase();
         if(name.equals(s))
         {
-            // print the player's details
-            System.out.println(players.get(i));
-            found = true;
-            //break; // since database has no duplicates input
+            searched.add(players.get(i));
         }
       }
-      
-      if(!found)
-      {
-        System.out.println("No such player found with this name");
-      }
 
+          return searched;
     }
     
-    public void byPosition()
+    public ArrayList<Player> byPosition()
     {
+        ArrayList<Player> searched = new ArrayList<>();
+
         System.out.println("Enter position of the player: ");
         String position = scanner.nextLine();
 
-        boolean found = false;
+        
         for(int i=0;i<players.size();i++)
         { 
           String s1 = position.toLowerCase();
           String s2 = players.get(i).getPosition().toLowerCase();
           if(s1.equals(s2))
           {
-              // print the player's details
-              System.out.println(players.get(i));
-              found = true;
+             searched.add(players.get(i));
           }
         }
         
-        if(!found)
-        {
-          System.out.println("No such player found with this position");
-        }
-  
+        return searched;
     }
 
-   public void byClubCountry()
+   public ArrayList<Player> byClubCountry()
    {
+    ArrayList<Player> searched = new ArrayList<>();
+
     String club,country;
     System.out.println("Enter country of the player: ");
     country = scanner.nextLine();
     System.out.println("Enter club of the country: ");
     club = scanner.nextLine();
-
-    boolean found = false;
 
     if(club.equals("ANY"))
     {
@@ -78,8 +68,7 @@ public class SearchPlayer {
             String s = players.get(i).getCountry().toLowerCase();
             if(country.equals(s))
             {
-                System.out.println(players.get(i));
-                found = true;
+                searched.add(players.get(i));
             }
 
         }
@@ -96,8 +85,7 @@ public class SearchPlayer {
 
          if(country.equals(s1) && club.equals(s2))
          {
-            System.out.println(players.get(i));
-            found = true;
+            searched.add(players.get(i));
          }
 
       }
@@ -105,15 +93,13 @@ public class SearchPlayer {
 
     }
 
-    if(!found)
-    {
-        System.out.println("“No such player found with this country and club");
-    }
-
+     return searched;
    }
 
-   public void bySalaryRange()
+   public ArrayList<Player> bySalaryRange()
    {
+     ArrayList<Player> searched = new ArrayList<>();
+
      int low,high;
      System.out.println("Enter the lower range of weekly salary: ");
      low = scanner.nextInt();
@@ -126,26 +112,21 @@ public class SearchPlayer {
         System.out.println("Invalid range.");
      }
 
-     boolean found = false;
+    
      for(int i=0;i<players.size();i++)
      {
         int salary = players.get(i).getWeeklySalary();
         if(low <= salary && salary <= high)
         {
-            System.out.println(players.get(i));
-            found = true;
+            searched.add(players.get(i));
         }
 
      }
 
-     if(!found)
-     {
-        System.out.println("No such player found with this weekly salary range");
-     }
-
+     return searched;
    }
 
-   public void countryWiseCount()
+   public HashMap<String,Integer> countryWiseCount()
    {
     HashMap<String,Integer> mp = new HashMap<>();
     // country -> count
@@ -162,10 +143,7 @@ public class SearchPlayer {
       }
 
     }
-    
-    
-    mp.forEach((key,value) -> System.out.println("Country: "+ key+"\nPlayers: " + value+"\n")); 
-
+      return mp;
 
    }
 

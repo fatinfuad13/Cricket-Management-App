@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -7,6 +8,7 @@ public class Menu {
     
     ArrayList<Player> players = PlayerList.getPlayers(); // we assign here instead of making a copy
     Scanner scanner = new Scanner(System.in);
+    Printer printer = new Printer();
 
     public void mainMenu()
     {
@@ -46,6 +48,8 @@ public class Menu {
     public void playerSearchMenu()
     {
       SearchPlayer search = new SearchPlayer();
+      ArrayList<Player> searchResult = new ArrayList<>();
+      HashMap<String,Integer> map = new HashMap<>();
 
       int choice = -1;
       while(choice != 6)
@@ -55,23 +59,43 @@ public class Menu {
          switch(choice)
          {
             case 1:
-            search.byName();
+            searchResult = search.byName();
+            if(searchResult.isEmpty())
+                 System.out.println("No player found with this name.");
+            else
+                 printer.printPlayers(searchResult);     
+
             break;
             
             case 2:
-            search.byClubCountry();
+            searchResult = search.byClubCountry();
+            if(searchResult.isEmpty())
+                System.out.println("No player found with this club and country.");
+            else
+                printer.printPlayers(searchResult);
+
             break;
 
             case 3:
-            search.byPosition();
+            searchResult = search.byPosition();
+            if(searchResult.isEmpty())
+                System.out.println("No player found with this position.");
+            else
+                printer.printPlayers(searchResult);
+
             break;
 
             case 4:
-            search.bySalaryRange();
+            searchResult = search.bySalaryRange();
+            if(searchResult.isEmpty())
+               System.out.println("No player found with this salary range.");
+            else
+               printer.printPlayers(searchResult);
             break;
 
             case 5:
-            search.countryWiseCount();
+            map = search.countryWiseCount();
+            map.forEach((key,value) -> System.out.println("Country: "+ key+"\nPlayers: " + value+"\n"));
             break;
 
             case 6:
@@ -90,6 +114,8 @@ public class Menu {
     public void clubSearchMenu()
     {
         SearchClub search = new SearchClub();
+        ArrayList<Player> searchResult = new ArrayList<>();
+        
         
         int choice = -1;
         while(choice != 5)
@@ -99,19 +125,38 @@ public class Menu {
            switch(choice)
            {
             case 1:
-            search.byMaxSalary();
+            searchResult = search.byMaxSalary();
+            if(searchResult.isEmpty())
+                System.out.println("No club of such name exists.");
+            else
+                printer.printPlayers(searchResult);
+
             break;
             
             case 2:
-            search.byMaxAge();;
+            searchResult = search.byMaxAge();
+            if(searchResult.isEmpty())
+               System.out.println("No club of such name exists.");
+            else
+               printer.printPlayers(searchResult);
+
             break;
 
             case 3:
-            search.byMaxHeight();;
+            searchResult = search.byMaxHeight();
+            if(searchResult.isEmpty())
+               System.out.println("No club of such name exists.");
+            else
+               printer.printPlayers(searchResult);
+
             break;
 
             case 4:
-            search.totalClubSalary();;
+            long total = search.totalClubSalary();
+            if(total == -1)
+                System.out.println("No club of such name exists.");
+            else
+                System.out.println("Total yearly salary of the club is "+total);
             break;
 
             case 5:

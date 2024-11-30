@@ -1,3 +1,4 @@
+
 public class Player {
     private String name,country,club,position;
     private int age,number,WeeklySalary;
@@ -54,6 +55,39 @@ public class Player {
         return height;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    
+    public void setClub(String club) {
+        this.club = club;
+    }
+    
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public void setNumber(int number) {
+        this.number = number;
+    }
+    
+    public void setWeeklySalary(int WeeklySalary) {
+        this.WeeklySalary = WeeklySalary;
+    }
+    
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    
+   
      @Override
      public String toString()
     {

@@ -5,9 +5,11 @@ public class SearchClub {
     // MAKE SEARCH BY MAX ... MORE GENERALISED ?
     ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching
     Scanner scanner = new Scanner(System.in);
+    
 
    public ArrayList<Player> createClub(String clubName) // makes a list where all players are from the club named "clubName"
    {
+    ArrayList<Player> searched = new ArrayList<>(); 
     clubName = clubName.toLowerCase(); // MAKE IT PRIVATE?
 
     ArrayList<Player> club = new ArrayList<>();
@@ -25,8 +27,9 @@ public class SearchClub {
    }
 
     
-    public void byMaxSalary()
+    public ArrayList<Player> byMaxSalary()
     {
+      ArrayList<Player> searched = new ArrayList<>();  
       String clubName;
       System.out.println("Enter name of the club: ");
       clubName = scanner.nextLine();
@@ -34,7 +37,7 @@ public class SearchClub {
       ArrayList<Player> club = createClub(clubName);
       if(club.isEmpty())
       {
-        System.out.println("No such club found with this name");
+       return searched;
       }
       
       else
@@ -49,14 +52,15 @@ public class SearchClub {
          for(int i=0;i<club.size();i++) // print the players with the max salary
          {
             if(club.get(i).getWeeklySalary() == maxSalary)
-                  System.out.println(club.get(i));
+                  searched.add(club.get(i));
          }
-
+          
+         return searched;
       }
 
     }
 
-    public void totalClubSalary()
+    public long totalClubSalary()
     {
         String clubName;
         System.out.println("Enter name of the club: ");
@@ -65,7 +69,7 @@ public class SearchClub {
         ArrayList<Player> club = createClub(clubName);
         if(club.isEmpty())
         {
-            System.out.println("No such club found with this name");
+            return -1;
         }
         
         else
@@ -76,15 +80,15 @@ public class SearchClub {
             total += club.get(i).getWeeklySalary();
           }
 
-          System.out.println("Total yearly salary of the club is: "+total*52);
-
+          return total*52;
         }
 
     }
 
 
-    public void byMaxAge()
+    public ArrayList<Player> byMaxAge()
     {
+      ArrayList<Player> searched = new ArrayList<>();
       String clubName;
       System.out.println("Enter name of the club: ");
       clubName = scanner.nextLine();
@@ -92,7 +96,7 @@ public class SearchClub {
       ArrayList<Player> club = createClub(clubName);
       if(club.isEmpty())
       {
-        System.out.println("No such club found with this name");
+       return searched;
       }
       
       else
@@ -107,16 +111,17 @@ public class SearchClub {
          for(int i=0;i<club.size();i++) // print the players with the max age
          {
             if(club.get(i).getAge() == maxAge)
-                  System.out.println(club.get(i));
+                  searched.add(club.get(i));
          }
-
+       return searched;
       }
 
     }
 
 
-    public void byMaxHeight()
+    public ArrayList<Player> byMaxHeight()
     {
+      ArrayList<Player> searched = new ArrayList<>();  
       String clubName;
       System.out.println("Enter name of the club: ");
       clubName = scanner.nextLine();
@@ -124,7 +129,7 @@ public class SearchClub {
       ArrayList<Player> club = createClub(clubName);
       if(club.isEmpty())
       {
-        System.out.println("No such club found with this name");
+        return searched;
       }
       
       else
@@ -139,9 +144,9 @@ public class SearchClub {
          for(int i=0;i<club.size();i++) // print the players with the max height
          {
             if(club.get(i).getHeight() == maxHeight)
-                  System.out.println(club.get(i));
+                  searched.add(club.get(i));
          }
-
+        return searched;
       }
 
     }

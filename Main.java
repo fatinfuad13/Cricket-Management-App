@@ -7,12 +7,8 @@ public class Main{
      
         ArrayList<Player> players = FileOperations.loadPlayersFromFile();
         PlayerList.setPlayers(players); 
-        //SearchClub search = new SearchClub();
-        //  SearchPlayer search = new SearchPlayer();
-        //search.byMaxHeight();
         Menu menu = new Menu();
         menu.mainMenu();
-        
         FileOperations.savePlayersToFile(players);
 
 
