@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class SearchClub {
     // MAKE SEARCH BY MAX ... MORE GENERALISED ?
     ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching
-    Scanner scanner = new Scanner(System.in);
+   
     
 
    public ArrayList<Player> createClub(String clubName) // makes a list where all players are from the club named "clubName"
@@ -27,14 +27,11 @@ public class SearchClub {
    }
 
     
-    public ArrayList<Player> byMaxSalary()
+    public ArrayList<Player> byMaxSalary(String clubName)
     {
       ArrayList<Player> searched = new ArrayList<>();  
-      String clubName;
-      System.out.println("Enter name of the club: ");
-      clubName = scanner.nextLine();
-
       ArrayList<Player> club = createClub(clubName);
+
       if(club.isEmpty())
       {
        return searched;
@@ -49,7 +46,7 @@ public class SearchClub {
                      maxSalary = club.get(i).getWeeklySalary();
          }
 
-         for(int i=0;i<club.size();i++) // print the players with the max salary
+         for(int i=0;i<club.size();i++) // return the players with the max salary
          {
             if(club.get(i).getWeeklySalary() == maxSalary)
                   searched.add(club.get(i));
@@ -60,12 +57,8 @@ public class SearchClub {
 
     }
 
-    public long totalClubSalary()
-    {
-        String clubName;
-        System.out.println("Enter name of the club: ");
-        clubName = scanner.nextLine();
-         
+    public long totalClubSalary(String clubName)
+    {  
         ArrayList<Player> club = createClub(clubName);
         if(club.isEmpty())
         {
@@ -86,14 +79,11 @@ public class SearchClub {
     }
 
 
-    public ArrayList<Player> byMaxAge()
+    public ArrayList<Player> byMaxAge(String clubName)
     {
       ArrayList<Player> searched = new ArrayList<>();
-      String clubName;
-      System.out.println("Enter name of the club: ");
-      clubName = scanner.nextLine();
-
       ArrayList<Player> club = createClub(clubName);
+
       if(club.isEmpty())
       {
        return searched;
@@ -108,7 +98,7 @@ public class SearchClub {
                      maxAge = club.get(i).getAge();
          }
 
-         for(int i=0;i<club.size();i++) // print the players with the max age
+         for(int i=0;i<club.size();i++) // return the players with the max age
          {
             if(club.get(i).getAge() == maxAge)
                   searched.add(club.get(i));
@@ -119,14 +109,11 @@ public class SearchClub {
     }
 
 
-    public ArrayList<Player> byMaxHeight()
+    public ArrayList<Player> byMaxHeight(String clubName)
     {
       ArrayList<Player> searched = new ArrayList<>();  
-      String clubName;
-      System.out.println("Enter name of the club: ");
-      clubName = scanner.nextLine();
-
       ArrayList<Player> club = createClub(clubName);
+
       if(club.isEmpty())
       {
         return searched;

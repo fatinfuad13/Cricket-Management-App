@@ -1,18 +1,16 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+
 
 public class SearchPlayer {
 
     ArrayList<Player> players =  new ArrayList<>(PlayerList.getPlayers());; // receive the playerList 
-    Scanner scanner = new Scanner(System.in);
+   
     
 
-    public ArrayList<Player> byName() // searches for a player by name
+    public ArrayList<Player> byName(String name) // searches for a player by name
     {
       ArrayList<Player> searched = new ArrayList<>(); 
-      System.out.println("Enter name of the player:");
-      String name = scanner.nextLine();
       name = name.toLowerCase();
 
       //boolean found = false;
@@ -29,13 +27,9 @@ public class SearchPlayer {
           return searched;
     }
     
-    public ArrayList<Player> byPosition()
+    public ArrayList<Player> byPosition(String position)
     {
         ArrayList<Player> searched = new ArrayList<>();
-
-        System.out.println("Enter position of the player: ");
-        String position = scanner.nextLine();
-
         
         for(int i=0;i<players.size();i++)
         { 
@@ -50,15 +44,9 @@ public class SearchPlayer {
         return searched;
     }
 
-   public ArrayList<Player> byClubCountry()
+   public ArrayList<Player> byClubCountry(String club,String country)
    {
     ArrayList<Player> searched = new ArrayList<>();
-
-    String club,country;
-    System.out.println("Enter country of the player: ");
-    country = scanner.nextLine();
-    System.out.println("Enter club of the country: ");
-    club = scanner.nextLine();
 
     if(club.equals("ANY"))
     {
@@ -96,20 +84,13 @@ public class SearchPlayer {
      return searched;
    }
 
-   public ArrayList<Player> bySalaryRange()
+   public ArrayList<Player> bySalaryRange(int low,int high)
    {
      ArrayList<Player> searched = new ArrayList<>();
 
-     int low,high;
-     System.out.println("Enter the lower range of weekly salary: ");
-     low = scanner.nextInt();
-
-     System.out.println("Enter the higher range of weekly salary: ");
-     high = scanner.nextInt();
-
      if(low > high)
      {
-        System.out.println("Invalid range.");
+       return searched;
      }
 
     
