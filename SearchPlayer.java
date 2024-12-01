@@ -9,13 +9,13 @@ public class SearchPlayer {
     {
       ArrayList<Player> players =  new ArrayList<>(PlayerList.getPlayers()); // receive the playerList 
       ArrayList<Player> searched = new ArrayList<>(); 
-      name = name.toLowerCase();
+      name = name.toLowerCase().trim();
 
       //boolean found = false;
       for(int i=0;i<players.size();i++)
       {
         
-        String s = players.get(i).getName().toLowerCase();
+        String s = players.get(i).getName().toLowerCase().trim();
         if(name.equals(s))
         {
             searched.add(players.get(i));
@@ -32,8 +32,8 @@ public class SearchPlayer {
         
         for(int i=0;i<players.size();i++)
         { 
-          String s1 = position.toLowerCase();
-          String s2 = players.get(i).getPosition().toLowerCase();
+          String s1 = position.toLowerCase().trim();
+          String s2 = players.get(i).getPosition().toLowerCase().trim();
           if(s1.equals(s2))
           {
              searched.add(players.get(i));
@@ -50,10 +50,10 @@ public class SearchPlayer {
 
     if(club.equals("ANY"))
     {
-        country = country.toLowerCase();
+        country = country.toLowerCase().trim();
         for(int i=0;i<players.size();i++)
         {
-            String s = players.get(i).getCountry().toLowerCase();
+            String s = players.get(i).getCountry().toLowerCase().trim();
             if(country.equals(s))
             {
                 searched.add(players.get(i));
@@ -63,13 +63,13 @@ public class SearchPlayer {
     }
     else
     {
-      country = country.toLowerCase();
-      club = club.toLowerCase();
+      country = country.toLowerCase().trim();
+      club = club.toLowerCase().trim();
 
       for(int i=0;i<players.size();i++)
       {
-         String s1 = players.get(i).getCountry().toLowerCase();
-         String s2 = players.get(i).getClub().toLowerCase();
+         String s1 = players.get(i).getCountry().toLowerCase().trim();
+         String s2 = players.get(i).getClub().toLowerCase().trim();
 
          if(country.equals(s1) && club.equals(s2))
          {
@@ -127,7 +127,7 @@ public class SearchPlayer {
 
     }
       return mp;
-
+    // needs checking if bangladesh entered by user
    }
 
 

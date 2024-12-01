@@ -9,12 +9,12 @@ public class SearchClub {
     ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching
    
     //ArrayList<Player> searched = new ArrayList<>(); 
-    clubName = clubName.toLowerCase(); // MAKE IT PRIVATE?
+    clubName = clubName.toLowerCase().trim(); // MAKE IT PRIVATE?
 
     ArrayList<Player> club = new ArrayList<>();
     for(int i=0;i<players.size();i++)
     {
-        String s = players.get(i).getClub().toLowerCase();
+        String s = players.get(i).getClub().toLowerCase().trim();
        
         if(clubName.equals(s))
         {
