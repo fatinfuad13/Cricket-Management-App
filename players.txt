@@ -52,3 +52,4 @@ Fatin Fuad Alvee,Bangladesh,22,175.0,Mumbai Indians,Allrounder,10,1000000
 Lionel Messi,India,37,170.0,Royal Challengers Bangalore,Batsman,10,1000
 Saif Al Islam,Bangladesh,22,1.8,Delhi Capitals,Batsman,0,20000
 Mashruf Alam,Bangladesh,22,1.7,Kolkata Knight Riders,Allrounder,0,1000
+Yeasen Pollob,India,23,1.7,Delhi Capitals,Bowler,0,10

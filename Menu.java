@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.print.event.PrintJobListener;
 
 
 public class Menu {
@@ -10,8 +11,7 @@ public class Menu {
     public static void mainMenu()
     {
         Scanner scanner = new Scanner(System.in);
-        Printer printer = new Printer();
-
+       
      int choice = -1;
      while(choice != 4)
      {
@@ -50,8 +50,7 @@ public class Menu {
     public static void playerSearchMenu()
     {
         Scanner scanner = new Scanner(System.in);
-        Printer printer = new Printer();
-
+        
       ArrayList<Player> searchResult = new ArrayList<>();
       HashMap<String,Integer> map = new HashMap<>();
 
@@ -71,7 +70,7 @@ public class Menu {
             if(searchResult.isEmpty())
                  System.out.println("No player found with this name.");
             else
-                 printer.printPlayers(searchResult);     
+                 PlayerList.printPlayers(searchResult);     
 
             break;
             
@@ -85,7 +84,7 @@ public class Menu {
             if(searchResult.isEmpty())
                 System.out.println("No player found with this club and country.");
             else
-                printer.printPlayers(searchResult);
+                PlayerList.printPlayers(searchResult);
 
             break;
 
@@ -96,7 +95,7 @@ public class Menu {
             if(searchResult.isEmpty())
                 System.out.println("No player found with this position.");
             else
-                printer.printPlayers(searchResult);
+                PlayerList.printPlayers(searchResult);
 
             break;
 
@@ -114,7 +113,7 @@ public class Menu {
             if(searchResult.isEmpty())
                System.out.println("No player found with this salary range.");
             else
-               printer.printPlayers(searchResult);
+               PlayerList.printPlayers(searchResult);
             break;
 
             case 5:
@@ -138,7 +137,6 @@ public class Menu {
     public static void clubSearchMenu()
     {
         Scanner scanner = new Scanner(System.in);
-        Printer printer = new Printer();
         ArrayList<Player> searchResult = new ArrayList<>();
         
         
@@ -160,7 +158,7 @@ public class Menu {
             if(searchResult.isEmpty())
                 System.out.println("No club of such name exists.");
             else
-                printer.printPlayers(searchResult);
+                PlayerList.printPlayers(searchResult);
 
             break;
             
@@ -171,7 +169,7 @@ public class Menu {
             if(searchResult.isEmpty())
                System.out.println("No club of such name exists.");
             else
-               printer.printPlayers(searchResult);
+               PlayerList.printPlayers(searchResult);
 
             break;
 
@@ -182,7 +180,7 @@ public class Menu {
             if(searchResult.isEmpty())
                System.out.println("No club of such name exists.");
             else
-               printer.printPlayers(searchResult);
+               PlayerList.printPlayers(searchResult);
 
             break;
 

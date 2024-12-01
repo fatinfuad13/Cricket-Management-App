@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class PlayerList {
     private static ArrayList<Player> players; // ensures only one copy of players 
 
-    public static void setPlayers(ArrayList<Player> playerList)
+    public static void setPlayers(ArrayList<Player> playerList) // only call once in main 
     {
         players = playerList;
     }
     
-    public static ArrayList<Player> getPlayers()
+    public static ArrayList<Player> getPlayers() // use in any class that needs the database
     {
        return players;
     }
@@ -117,6 +117,13 @@ public class PlayerList {
 
         return newPlayer;
     }
+
+    public static void printPlayers(ArrayList<Player> players)
+    {
+        for(int i=0;i<players.size();i++)
+              System.out.println(players.get(i));
+    }
+
 
 
 }
