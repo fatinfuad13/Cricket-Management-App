@@ -47,7 +47,7 @@ public class Menu {
 
     public void playerSearchMenu()
     {
-      SearchPlayer search = new SearchPlayer();
+      
       ArrayList<Player> searchResult = new ArrayList<>();
       HashMap<String,Integer> map = new HashMap<>();
 
@@ -63,7 +63,7 @@ public class Menu {
             case 1:
             System.out.println("Enter name of the player:");
             String name = scanner.nextLine();
-            searchResult = search.byName(name);
+            searchResult = SearchPlayer.byName(name);
             if(searchResult.isEmpty())
                  System.out.println("No player found with this name.");
             else
@@ -77,7 +77,7 @@ public class Menu {
             country = scanner.nextLine();
             System.out.println("Enter club of the country: ");
             club = scanner.nextLine();
-            searchResult = search.byClubCountry(club,country);
+            searchResult = SearchPlayer.byClubCountry(club,country);
             if(searchResult.isEmpty())
                 System.out.println("No player found with this club and country.");
             else
@@ -88,7 +88,7 @@ public class Menu {
             case 3:
             System.out.println("Enter position of the player: ");
             String position = scanner.nextLine();
-            searchResult = search.byPosition(position);
+            searchResult = SearchPlayer.byPosition(position);
             if(searchResult.isEmpty())
                 System.out.println("No player found with this position.");
             else
@@ -103,7 +103,7 @@ public class Menu {
 
             System.out.println("Enter the higher range of weekly salary: ");
             high = scanner.nextInt();
-            searchResult = search.bySalaryRange(low,high);
+            searchResult = SearchPlayer.bySalaryRange(low,high);
             if(searchResult.isEmpty())
                System.out.println("No player found with this salary range.");
             else
@@ -111,7 +111,7 @@ public class Menu {
             break;
 
             case 5:
-            map = search.countryWiseCount();
+            map = SearchPlayer.countryWiseCount();
             map.forEach((key,value) -> System.out.println("Country: "+ key+"\nPlayers: " + value+"\n"));
             break;
 
@@ -130,7 +130,7 @@ public class Menu {
 
     public void clubSearchMenu()
     {
-        SearchClub search = new SearchClub();
+        
         ArrayList<Player> searchResult = new ArrayList<>();
         
         
@@ -148,7 +148,7 @@ public class Menu {
             case 1:
             System.out.println("Enter name of the club: ");
             clubName = scanner.nextLine();
-            searchResult = search.byMaxSalary(clubName);
+            searchResult = SearchClub.byMaxSalary(clubName);
             if(searchResult.isEmpty())
                 System.out.println("No club of such name exists.");
             else
@@ -159,7 +159,7 @@ public class Menu {
             case 2:
             System.out.println("Enter name of the club: ");
             clubName = scanner.nextLine();
-            searchResult = search.byMaxAge(clubName);
+            searchResult = SearchClub.byMaxAge(clubName);
             if(searchResult.isEmpty())
                System.out.println("No club of such name exists.");
             else
@@ -170,7 +170,7 @@ public class Menu {
             case 3:
             System.out.println("Enter name of the club: ");
             clubName = scanner.nextLine();
-            searchResult = search.byMaxHeight(clubName);
+            searchResult = SearchClub.byMaxHeight(clubName);
             if(searchResult.isEmpty())
                System.out.println("No club of such name exists.");
             else
@@ -181,7 +181,7 @@ public class Menu {
             case 4:
             System.out.println("Enter name of the club: ");
             clubName = scanner.nextLine();
-            long total = search.totalClubSalary(clubName);
+            long total = SearchClub.totalClubSalary(clubName);
             if(total == -1)
                 System.out.println("No club of such name exists.");
             else

@@ -3,13 +3,14 @@ import java.util.ArrayList;
 
 public class SearchClub {
     // MAKE SEARCH BY MAX ... MORE GENERALISED ?
-    ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching
-   
+    
     
 
-   public ArrayList<Player> createClub(String clubName) // makes a list where all players are from the club named "clubName"
+   public static ArrayList<Player> createClub(String clubName) // makes a list where all players are from the club named "clubName"
    {
-    ArrayList<Player> searched = new ArrayList<>(); 
+    ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching
+   
+    //ArrayList<Player> searched = new ArrayList<>(); 
     clubName = clubName.toLowerCase(); // MAKE IT PRIVATE?
 
     ArrayList<Player> club = new ArrayList<>();
@@ -27,8 +28,9 @@ public class SearchClub {
    }
 
     
-    public ArrayList<Player> byMaxSalary(String clubName)
+    public static ArrayList<Player> byMaxSalary(String clubName)
     {
+      ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching      
       ArrayList<Player> searched = new ArrayList<>();  
       ArrayList<Player> club = createClub(clubName);
 
@@ -57,7 +59,7 @@ public class SearchClub {
 
     }
 
-    public long totalClubSalary(String clubName)
+    public static long totalClubSalary(String clubName)
     {  
         ArrayList<Player> club = createClub(clubName);
         if(club.isEmpty())
@@ -79,7 +81,7 @@ public class SearchClub {
     }
 
 
-    public ArrayList<Player> byMaxAge(String clubName)
+    public static ArrayList<Player> byMaxAge(String clubName)
     {
       ArrayList<Player> searched = new ArrayList<>();
       ArrayList<Player> club = createClub(clubName);
@@ -109,7 +111,7 @@ public class SearchClub {
     }
 
 
-    public ArrayList<Player> byMaxHeight(String clubName)
+    public static ArrayList<Player> byMaxHeight(String clubName)
     {
       ArrayList<Player> searched = new ArrayList<>();  
       ArrayList<Player> club = createClub(clubName);
