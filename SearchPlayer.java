@@ -4,10 +4,7 @@ import java.util.HashMap;
 
 public class SearchPlayer {
 
-    ArrayList<Player> players =  new ArrayList<>(PlayerList.getPlayers());; // receive the playerList 
-   
     
-
     public static ArrayList<Player> byName(String name) // searches for a player by name
     {
       ArrayList<Player> players =  new ArrayList<>(PlayerList.getPlayers()); // receive the playerList 

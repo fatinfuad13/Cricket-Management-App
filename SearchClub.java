@@ -4,8 +4,6 @@ import java.util.ArrayList;
 public class SearchClub {
     // MAKE SEARCH BY MAX ... MORE GENERALISED ?
     
-    
-
    public static ArrayList<Player> createClub(String clubName) // makes a list where all players are from the club named "clubName"
    {
     ArrayList<Player> players = new ArrayList<>(PlayerList.getPlayers()); // create a copy instead of assigning to avoid changing players array while searching

@@ -63,7 +63,7 @@ public class PlayerList {
     
         while (true) {
             try {
-                System.out.println("Enter height of the player (in cm): ");
+                System.out.println("Enter height of the player (in m): ");
                 height = Double.parseDouble(scanner.nextLine());
                 if (height <= 0) throw new NumberFormatException("Height must be positive.");
                 break;
@@ -74,14 +74,20 @@ public class PlayerList {
     
         while (true) {
             try {
-                System.out.println("Enter jersey number of the player: ");
-                number = Integer.parseInt(scanner.nextLine());
+                System.out.println("Enter jersey number of the player (press Enter to skip): ");
+                String input = scanner.nextLine();
+                if (input.isEmpty()) { // If input is empty, set the number to 0 and break
+                    number = 0;
+                    break;
+                }
+                number = Integer.parseInt(input);
                 if (number < 0) throw new NumberFormatException("Number cannot be negative.");
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid non-negative integer for jersey number.");
             }
         }
+        
     
         while (true) {
             try {

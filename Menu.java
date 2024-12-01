@@ -6,17 +6,19 @@ import java.util.Scanner;
 
 public class Menu {
     
-    ArrayList<Player> players = PlayerList.getPlayers(); // we assign here instead of making a copy
-    Scanner scanner = new Scanner(System.in);
-    Printer printer = new Printer();
-
-    public void mainMenu()
+    //ArrayList<Player> players = PlayerList.getPlayers(); // we assign here instead of making a copy
+    public static void mainMenu()
     {
+        Scanner scanner = new Scanner(System.in);
+        Printer printer = new Printer();
+
      int choice = -1;
      while(choice != 4)
      {
         System.out.println("Main Menu:\n(1) Search Players\n(2) Search Clubs\n(3) Add Player\n(4) Exit System");
         choice = scanner.nextInt();
+        scanner.nextLine();
+
         switch(choice)
         {
             case 1:
@@ -41,13 +43,15 @@ public class Menu {
         }
 
      }
-
+      
 
     }
 
-    public void playerSearchMenu()
+    public static void playerSearchMenu()
     {
-      
+        Scanner scanner = new Scanner(System.in);
+        Printer printer = new Printer();
+
       ArrayList<Player> searchResult = new ArrayList<>();
       HashMap<String,Integer> map = new HashMap<>();
 
@@ -100,9 +104,12 @@ public class Menu {
             int low,high;
             System.out.println("Enter the lower range of weekly salary: ");
             low = scanner.nextInt();
+            scanner.nextLine();
 
             System.out.println("Enter the higher range of weekly salary: ");
             high = scanner.nextInt();
+            scanner.nextLine();
+
             searchResult = SearchPlayer.bySalaryRange(low,high);
             if(searchResult.isEmpty())
                System.out.println("No player found with this salary range.");
@@ -124,13 +131,14 @@ public class Menu {
          }
 
       }
-
+      
 
     }
 
-    public void clubSearchMenu()
+    public static void clubSearchMenu()
     {
-        
+        Scanner scanner = new Scanner(System.in);
+        Printer printer = new Printer();
         ArrayList<Player> searchResult = new ArrayList<>();
         
         
@@ -200,10 +208,10 @@ public class Menu {
 
 
         }
-
+       
     }
 
-    public void addPlayerMenu()
+    public static void addPlayerMenu()
     {
         PlayerList.addPlayer(); 
     }
