@@ -17,10 +17,10 @@ public class PlayerList {
 
     public static boolean containsPlayer(String name)
     {
-        name = name.toLowerCase();
+        name = name.toLowerCase().trim();
         for(int i=0;i<players.size();i++)
         {
-           String s = players.get(i).getName().toLowerCase();
+           String s = players.get(i).getName().toLowerCase().trim();
            if(name.equals(s))
                 return true;
         }
